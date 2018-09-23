@@ -69,6 +69,7 @@ enum PacketType {
 	MSG_RESIZE  = 3,
 	MSG_EXIT    = 4,
 	MSG_PID     = 5,
+	MSG_SESSION = 6,
 };
 
 typedef struct {

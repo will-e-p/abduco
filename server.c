@@ -244,6 +244,7 @@ static void server_mainloop(void) {
 				case MSG_DETACH:
 					c->state = STATE_DISCONNECTED;
 					break;
+				case MSG_SESSION:
 				default: /* ignore package */
 					break;
 				}

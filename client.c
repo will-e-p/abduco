@@ -130,6 +130,9 @@ static int client_mainloop(void) {
 					client_send_packet(&pkt);
 					close(server.socket);
 					return -1;
+				} else if (pkt.u.msg[0] == KEY_SESSION) {
+					printf("[abduco session: %s] ", server.session_name);
+					fflush(stdout);
 				} else if (!(client.flags & CLIENT_READONLY)) {
 					client_send_packet(&pkt);
 				}

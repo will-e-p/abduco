@@ -2,6 +2,7 @@
 #define ABDUCO_CMD "dvtm"
 /* default detach key, can be overriden at run time using -e option */
 static char KEY_DETACH = CTRL('\\');
+static char KEY_SESSION = CTRL('?');
 /* redraw key to send a SIGWINCH signal to underlying process
  * (set to 0 to disable the redraw key) */
 static char KEY_REDRAW = 0;
