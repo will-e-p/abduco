@@ -1,0 +1,24 @@
+#compdef abduco
+
+local abduco_dir
+if [[ -v ABDUCO_SOCKET_DIR ]] ; then
+  abduco_dir="$ABDUCO_SOCKET_DIR"
+else
+  abduco_dir="$HOME/.abduco"
+fi
+local session_list
+session_list=($(ls "$abduco_dir" | awk -F@ '{OFS=FS; NF--; print}'))
+
+_arguments -C \
+    '-a[Attach to an existing session]' \
+    '-A[Attach to or create a new session]' \
+    '-c[Create a new session and attach to it]' \
+    '-n[Create a new session and do not attach to it]' \
+    '-e[Set the detach key]' \
+    '-f[Force creation of new session]' \
+    '-l[Attach with lowest priority]' \
+    '-p[Pass through standard input]' \
+    '-q[Be quiet]' \
+    '-r[Read-only session]' \
+    '-v[Print version]' \
+    '*: :($session_list)' && ret=0
